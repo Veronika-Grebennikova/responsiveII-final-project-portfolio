@@ -1,0 +1,808 @@
+/***************************************************
+// Reset
+***************************************************/
+
+/* border-box makes everything easy */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,input,select,textarea,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,figure,footer,header,nav,section,main{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Better behavior for lists */
+ul,ol{
+	list-style-position: outside;
+	margin-left: 1.4rem;
+	padding-left: 0;
+}
+
+/* Keep images and videos from overspilling their bounds */
+img, video{
+	display: block;
+	max-width :100%;
+	height: auto;
+}
+
+/* Make hr just a simple line */
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1rem 0;
+	padding: 0;
+}
+
+/* Reduce quirky behavior for tables */
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Make input text line up with other text */
+input,select{
+	vertical-align: middle;
+}
+
+/* Kill default borders on fieldsets */
+fieldset{
+	border: none;
+}
+
+/* It's rare to want an inline textarea */
+textarea{
+	display: block;
+}
+
+/* Make sub and sup text line up better */
+sub,sup{
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup{
+	top: -0.5rem;
+}
+sub{
+	bottom: -0.25rem;
+}
+
+/* A fix for SVG display in old versions of IE. */
+svg:not(:root){
+	overflow: hidden;
+}
+
+/***************************************************
+// Main
+***************************************************/
+
+main {
+    margin: 0 auto;
+    
+}
+
+.padding-general {
+    max-width: 65rem;
+    padding: 1rem;
+}
+@media (min-width: 960px) {
+    main {
+        margin: 0 0 0 250px;
+    }
+}
+
+/***************************************************
+// Colors
+***************************************************/
+html {
+    --color-primary:            #262262;
+    --color-primary-dark:       #000037;
+    --color-primary-light:      #554a90;
+
+    --color-secondary:          #f1592a;
+    --color-secondary-dark:     #b72300;
+    --color-secondary-light:    #ff8b57;
+
+    --color-accent:             #056839;
+    --color-accent-dark:        #003c12;
+    --color-accent-light:       #439764;
+
+    --color-gray: #1f2d3d;
+    --color-gray-dark: #000117;
+    --color-gray-light: #e5e9f2;
+}
+
+/* ==========================================================================
+ Typography
+========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700|Work+Sans:400,600&display=swap');
+
+html {
+    --font-headings: 'Work Sans', sans-serif;
+    --font-primary: 'Roboto', sans-serif;;
+    --ratio: 1.333;
+    --size-xlarge: calc(var(--size-large) * var(--ratio) );
+	--size-large: calc(var(--size-medium) * var(--ratio) );
+    --size-medium: calc(1rem * var(--ratio));
+    --size-small: calc(.65rem * var(--ratio));
+    --size-xsmall: calc(.5rem * var(--ratio));
+
+    --margin-large: calc(1rem * var(--ratio) * 2);
+    --margin-medium: calc(1rem * var(--ratio) * 1.5);
+    --margin-standard: calc(1rem * var(--ratio));
+    --margin-small: calc(.6rem * var(--ratio));
+
+    color: var(--color-gray-dark);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (min-width: 600px) {
+    html {
+        --ratio: 1.5;
+
+        font-size: 18px;
+    }
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+}
+
+
+h4, h5, h6 {
+    margin: var(--margin-medium) 0 var(--margin-small);
+}
+
+h1 {
+    font-size: var(--size-large);
+    line-height: 1.2;
+    margin-bottom: var(--margin-large);
+}
+
+h2 {
+    font-size: var(--size-medium);
+    margin: 1.5rem 0 .5rem;
+    padding-top: .5rem;
+}
+
+h3 {
+    margin: 1rem 0 .3rem;
+}
+
+h5 {
+    font-weight: 500;
+}
+
+p {
+    margin: .5rem 0;
+}
+
+.text-featured {
+    font-size: var(--size-medium);
+    font-weight: 800;
+    max-width: 40rem;
+}
+
+.text-featured-hero-section {
+    color: white;
+    font-size: var(--size-medium);
+    
+}
+
+
+.text-tetriary {
+    font-size: var(--size-small);
+    max-width: 20rem;
+}
+
+strong {
+    font-family: var(--font-headings);
+    font-weight: 700;
+}
+
+a {
+    color: var(--color-primary-light);
+}
+a:visited {
+    color: var(--color-accent);
+}
+
+a:hover, a:focus, a:active {
+    color: var(--color-primary-dark);
+}
+
+span {
+    color: var(--color-secondary-dark);
+    font-weight: bold;
+}
+
+
+/* ==========================================================================
+ Header Component
+========================================================================== */
+header{
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+.logo {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto;
+    max-height: 100px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+    padding: .5rem;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.menu-current {
+    text-decoration: none;
+}
+
+.menu-current::before {
+    border-bottom: 2px solid var(--color-primary-dark);     
+    content: "";
+    display: block;
+    width: 100%;
+}
+
+.menu-current a {
+    margin: .5rem 0;
+    padding: 0 10px;
+}
+
+.menu-current::after {
+    border-bottom: 2px solid var(--color-primary-dark);     
+    content: "";
+    display: block;
+    width: 100%;
+}
+
+nav a:visited {
+    color: var(--color-primary-dark);
+}
+
+
+
+
+@media (min-width: 960px) {
+    header {
+        background-color: var(--color-gray-light);
+        height: 100vh;
+        max-width: 250px;
+        padding: 2rem;
+        position: fixed;
+    }
+
+    .menu-current a {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    nav li a {
+        position: relative;
+        display: block;
+        margin: 20px 0;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: var(--color-primary-dark);
+        font-size: 18px;
+        font-weight: 600;
+        transition: .5s;
+        z-index: 1;
+    }
+
+    nav li a:visited {
+        color: var(--color-primary-dark);
+    }
+    
+    nav li a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 2px solid var(--color-primary-dark);
+        border-bottom: 2px solid var(--color-primary-dark);
+        transform: scaleY(2);
+        opacity: 0;
+        transition: .3s;
+    }
+    
+    nav li a:after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-primary-dark);
+        transform: scale(0);
+        opacity: 0;
+        transition: .3s;
+        z-index: -1;
+    }
+    
+    
+    nav li a:hover {
+        color: white;
+        text-decoration: none;
+    }
+    
+    nav a:hover:before {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    
+    nav a:hover:after {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    
+    nav a:focus, a:active {
+        background-color: var(--color-primary-dark);
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+
+/** Menu block **/
+
+/* ==========================================================================
+ Footer Component
+========================================================================== */
+footer {
+    background-color: white;
+    border-top: 1px solid var(--color-gray-light);
+    color: var(--color-primary-dark);
+    display: grid;
+    font-size: .8rem;
+    grid-column-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+.icon {
+    display: inline;
+    margin-right: 1rem;
+    max-width: 30px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a span {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+}
+
+footer a span:hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+.image-text-center {
+    display: flex;
+}
+
+.image-text-center:first-of-type {
+    margin-bottom: .5rem;
+}
+
+.image-text-center span {
+    padding-top: .2rem;
+}
+
+@media (min-width: 960px) {
+    footer {
+        grid-template-columns: repeat( 3, 1fr);
+        margin: 10rem auto 0 250px;
+    }
+}
+
+
+/* ==========================================================================
+ Button-link Components
+========================================================================== */
+.hero-button {
+    background-color: var(--color-secondary);
+    padding: .5rem 1rem;
+    text-decoration: none;
+}
+
+.hero-button:hover {
+    background-color: var(--color-secondary-dark);
+    
+}
+
+.hero-button a, .hero-button:visited {
+    color: white;
+}
+
+/* ==========================================================================
+ Portfolio page
+========================================================================== */
+.highlits {
+    border-top: .5px solid var(--color-gray-light);
+    border-bottom: .5px solid var(--color-gray-light);
+}
+
+.thumbnails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .5rem;
+    margin: 1rem 0;
+}
+@media (min-width: 550px) {
+    .thumbnails {
+        grid-template-columns: repeat(3, 1fr);
+    }    
+}   
+
+@media (min-width: 700px) {
+    .thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+    }    
+} 
+/* ____________________________________________*/    
+   
+    /* Styles the lightbox, removes it from sight and adds the fade-in transition */
+    .lightbox img:hover{
+        box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+    }
+    .lightbox-target {
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        background: rgba(0,0,0,.7);
+        width: 100%;
+        opacity: 0;
+        -webkit-transition: opacity .5s ease-in-out;
+        -moz-transition: opacity .5s ease-in-out;
+        -o-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out;
+        overflow: hidden;
+    }
+    @media (min-width: 960px) {
+        .lightbox-target {
+            margin-left: -250px;
+        }
+    }    
+    /* Styles the lightbox image, centers it vertically and horizontally, adds the zoom-in transition and makes it responsive using a combination of margin and absolute positioning */
+
+    .lightbox-target img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom: 0;
+    max-height: 0%;
+    max-width: 0%;
+    border: 3px solid white;
+    box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+    box-sizing: border-box;
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+}
+    
+    /* Styles the close link, adds the slide down transition */
+    
+    a.lightbox-close {
+    display: block;
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+    background: white;
+    color: black;
+    text-decoration: none;
+    position: relative;
+    top: 0;
+    right: calc(-100% + 75px);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    }
+    
+    /* Provides part of the "X" to eliminate an image from the close link */
+    
+    a.lightbox-close:before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 1px;
+    background: black;
+    position: absolute;
+    left: 26px;
+    top:10px;
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -o-transform:rotate(45deg);
+    transform:rotate(45deg);
+    }
+    
+    /* Provides part of the "X" to eliminate an image from the close link */
+    
+    a.lightbox-close:after {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 1px;
+    background: black;
+    position: absolute;
+    left: 26px;
+    top:10px;
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    }
+    
+    /* Uses the :target pseudo-class to perform the animations upon clicking the .lightbox-target anchor */
+    
+    .lightbox-target:target {
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    }
+    
+    .lightbox-target:target img {
+    max-height: 80%;
+    max-width: 80%;
+    }
+    
+    .lightbox-target:target a.lightbox-close {
+    top: 0px;
+    }
+/* ____________________________________________*/    
+
+.side-note {
+    border-left: 6px solid var(--color-secondary);
+    color: #444;
+    margin: 2rem 0;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+ Modal Component | Fun fact
+========================================================================== */
+.button-fact {
+    background-color: var(--color-secondary);
+    bottom: 0;
+    color: white;
+    left: 0;
+    text-align: center;
+    padding: .5rem 1rem;
+    position: fixed;
+    width: 100%;
+}
+.modal-fact {
+    animation: modal-fact 1s linear;
+    background-color: var(--color-accent-dark);
+    border: 0;
+    color: white;
+    margin: 0 2rem;
+    padding-top: 3rem;
+    position: relative;
+}
+
+.close {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+}
+
+dialog::backdrop {
+	background-color: black;
+	opacity: .7;
+}
+@media (min-width: 960px) {
+    .button-fact {
+        width: 250px;
+    }
+
+    .modal-fact {
+        margin: 0 auto;
+    }
+}
+
+@keyframes modal-fact {
+	0% {
+        transform: translate(-100%, -100%) rotate(100deg) scale(0);
+    }
+    25% {
+        transform: translate(-75%, -75%) rotate(80deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(40deg);
+    }
+    75% {
+        transform: translate(-25%, -25%) rotate(20deg) scale(1.3);
+    }
+    85% {
+        transform: rotate(0deg);
+    }
+    95% {
+        transform: rotate(-20deg) scale(.9);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0) scale(1);
+    }
+}
+
+/* ==========================================================================
+ Form Components
+========================================================================== */
+label {
+    display: block;
+    margin: 1rem 0 .3rem;
+}
+
+input, select {
+    background-color: var(--color-gray-light);
+    border: none;
+    display: block;
+    font-family: var(--font-primary);
+    height: 1.5rem;
+    min-width: 15rem;
+    padding: .5rem;
+}
+
+textarea {
+    background-color: var(--color-gray-light);
+    border: none;
+    min-height: 10rem;
+    min-width: 25rem;
+    padding: .5rem;
+}
+
+button {
+    background-color: var(--color-primary-dark);
+    color: white;
+    font-size: var(--size-small);
+    margin-top: 2rem;
+    padding: .75rem 1.5rem;
+}
+
+/* ==========================================================================
+ Hero Components
+========================================================================== */
+.hero {
+    align-items: center;
+    background-color: var(--color-accent-light);
+    background-image: url(img/hero.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 65vh;
+}
+
+/* ==========================================================================
+ Portfolio Section
+========================================================================== */
+.grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 1rem;
+    
+}
+
+.grid a {
+    color: var(--color-primary-dark);
+    display: block;
+    text-decoration: none;
+}
+
+.tag {
+    color: var(--color-gray);
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.portfolio-card {
+    border: .5px solid var(--color-gray-light);
+    padding: 1rem;
+}
+
+.img-portfolio-preview {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1600px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Blur */
+
+@media (min-width: 960px) {
+    .portfolio img {
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
+    .portfolio img:hover {
+        -webkit-filter: blur(0);
+        filter: blur(0);
+    }
+}
+
+/* ==========================================================================
+ Resume section
+========================================================================== */
+.grid-skills {
+    display: grid;
+}
+
+@media (min-width: 600px) {
+    .grid-skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid-skills {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
